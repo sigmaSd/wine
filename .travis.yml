@@ -8,4 +8,4 @@ before_install:
 script:
  - ./configure --enable-win64
  - make
-
+ - tar -czvf wine.tar.gz *
