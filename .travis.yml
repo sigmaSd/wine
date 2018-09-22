@@ -1,11 +1,15 @@
 language: c
-
 before_install:
- - sudo apt-get update
- - sudo apt-get build-dep wine
-
-
+- sudo apt-get update
+- sudo apt-get build-dep wine
 script:
- - ./configure --enable-win64
- - make
- - tar -czvf wine.tar.gz *
+- "./configure --enable-win64"
+- make
+- tar -czvf wine.tar.gz *
+deploy:
+  provider: releases
+  api_key:
+    secure: H7WJ8dfPJG+H1QPiaMOXkZOtk5n80mcB5MqUu2PdagclkdmDhVanwPXbPurjbPxT5WGEADzCIGcafp/NgHtRH4YYWAkEqhu6Qt9HWaHatHSxFxwJCPLvr83uju3LmKMPJWw8zRMfdJ/CtIuMOgJCjS5Kjib999W+hiHikPVALwKFQuzpFos3vq9/EHUnKieqQplLf8uuWc3trY0BpOXW3+uZxU9yk9xmxqQ4oMvpUyLkI5SH4PIe1oLz3Jy/K4uDpftnjIXsgLoAjm3mLmgCTf+SHEo1da8cHqo9i3MH3P3hpg4fdM1SxxPHSFqhHN+eYT2DLmUzgNnDH0Lc5l/B0Gm23X+8BNLt9lRUe3IxK7RnpFibe6IWZvUj5/lYmXD6q6clDt8CYGoVKovh9m0yduYmcSzSP7taBf7bRzqgNEx2snO9ZJFfor7XxNTYnzMn7mnjtQYVBaAP+VIJ/Co7T5QUTY1F+ic6niJemdTo4wBPWFGXXqXKNFmyJo+o0LuywzMqcDz2/he0tThJWJE74XD6sTFpTD7Z9VI6vBzNhcunkTXefE+mLIu33NEQVNkLxlVxYtNot+2jtGBFJ+EqpCxm2Yd3BOpwcK8L96/c2bb4MK16Wdfe1umjkaAYo0ikFUBDAqAIYFKoIEMBWzGCIfPEyqyoBLkXbcf0qZpGiJA=
+  file: wine.tar.gz
+  on:
+    repo: sigmaSd/wine
